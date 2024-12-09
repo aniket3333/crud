@@ -23,6 +23,7 @@ export class AddEmployeeComponent implements OnInit {
     console.log(model);
     this._employeeService.addEmployee(model).subscribe((res)=>{
       console.log(res);
+      this.navigate();
               },(error)=>{
                   console.log(error);
               });
