@@ -14,7 +14,10 @@ private apiUrl = 'https://localhost:7023/'
 
 
   getAllEmployeeList(searchModel: EmployeeSearch): Observable<Employee[]> {
-    if(!searchModel)return;
+    if(!searchModel)
+    {
+      console.log('search model is empty');
+    }
     let params = new HttpParams()
     .set("empname",searchModel.empname);
      return   this._http.get<Employee[]>(this.apiUrl,{params});

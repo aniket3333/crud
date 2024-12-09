@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from "@angular/core";
 import { Employee } from "../../models/employee.model";
 import { EMPLOYEE_SERVICE, IEmployeeService } from "../../services/Iempoyee.service";
-import { EmployeeService } from "../../services/employee.service";
 import { EmployeeSearch } from "../../models/employeesearch.model";
 
 @Component({
@@ -13,6 +12,7 @@ import { EmployeeSearch } from "../../models/employeesearch.model";
     employeeSearch:EmployeeSearch;
     constructor(@Inject(EMPLOYEE_SERVICE) private _employeeService:IEmployeeService){}
     ngOnInit(): void {
+        debugger
         this.employeeSearch = new EmployeeSearch();
         this.getEmployeeList();
     }
