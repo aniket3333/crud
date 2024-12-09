@@ -4,7 +4,7 @@ import { Employee } from "./employee.model";
 export class EmployeeAddForm extends FormGroup {
     constructor() {
         super({
-            id: new FormControl(''),
+            id: new FormControl(0),
             name: new FormControl(''),
             email: new FormControl(''),
             phone: new FormControl(''),

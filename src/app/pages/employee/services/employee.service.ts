@@ -24,12 +24,10 @@ private apiUrl = 'https://localhost:7023/api/Empoloyee'
     return this._http.get<Employee[]>(`${this.apiUrl}/GetAllEmployeeList`);
 
   }
-  addEmployee(postModel:Employee): Observable<any> {
-    debugger
-    if(!postModel)
-    {
-      console.log('post model is empty');
+  addEmployee(postModel: Employee): Observable<any> {
+    if (!postModel) {
+      console.log('Post model is empty');
     }
-     return   this._http.post<any>(`${this.apiUrl}/AddEmployee`,postModel);
+    return this._http.post<any>(`${this.apiUrl}/AddEmployee`, postModel);  // Send the postModel directly
   }
 }
