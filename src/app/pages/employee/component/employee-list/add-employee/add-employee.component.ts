@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { EmployeeAddForm } from '../../../models/employee-form.model';
 
 @Component({
   selector: 'app-add-employee',
@@ -7,11 +8,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-employee.component.scss']
 })
 export class AddEmployeeComponent implements OnInit {
-  constructor(private router:Router){}
-  ngOnInit(): void {
-    
+  employeeAddForm: EmployeeAddForm;
+  get f(){
+    return this.employeeAddForm.controls;
   }
-  navigate(){
+  constructor(private router: Router) { }
+  ngOnInit(): void {
+    this.employeeAddForm = new EmployeeAddForm();
+
+  }
+  submit(){
+    let model = this.employeeAddForm.getFormData();
+    console.log(model);
+  }
+  navigate() {
     this.router.navigate(['/employee-list']);
-        }
+  }
 }
