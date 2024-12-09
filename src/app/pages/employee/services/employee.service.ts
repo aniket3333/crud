@@ -21,6 +21,15 @@ private apiUrl = 'https://localhost:7023/api/Empoloyee'
     }
     let params = new HttpParams()
     .set("empname",searchModel.empname);
-     return   this._http.get<Employee[]>(this.apiUrl,{params});
+    return this._http.get<Employee[]>(`${this.apiUrl}/GetAllEmployeeList`, { params });
+
+  }
+  addEmployee(postModel:Employee): Observable<any> {
+    debugger
+    if(!postModel)
+    {
+      console.log('post model is empty');
+    }
+     return   this._http.post<any>(`${this.apiUrl}/AddEmployee`,postModel);
   }
 }

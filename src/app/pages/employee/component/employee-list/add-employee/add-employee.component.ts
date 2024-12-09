@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmployeeAddForm } from '../../../models/employee-form.model';
+import { EMPLOYEE_SERVICE, IEmployeeService } from '../../../services/Iempoyee.service';
 
 @Component({
   selector: 'app-add-employee',
@@ -12,7 +13,7 @@ export class AddEmployeeComponent implements OnInit {
   get f(){
     return this.employeeAddForm.controls;
   }
-  constructor(private router: Router) { }
+  constructor(private router: Router,@Inject(EMPLOYEE_SERVICE) private _employeeService:IEmployeeService) { }
   ngOnInit(): void {
     this.employeeAddForm = new EmployeeAddForm();
 
@@ -20,6 +21,11 @@ export class AddEmployeeComponent implements OnInit {
   submit(){
     let model = this.employeeAddForm.getFormData();
     console.log(model);
+    this._employeeService.addEmployee(model).subscribe((res)=>{
+      console.log(res);
+              },(error)=>{
+                  console.log(error);
+              });
   }
   navigate() {
     this.router.navigate(['/employee-list']);
