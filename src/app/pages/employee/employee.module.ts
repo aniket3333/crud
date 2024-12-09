@@ -4,11 +4,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { EmployeeRoutingModule } from './employee-routing.module';
 import { EmployeeListComponent } from './component/employee-list/employee-list.component';
 import { providerList } from './employee-provider.registrar';
+import { AddEmployeeComponent } from './component/employee-list/add-employee/add-employee.component';
 
 
 @NgModule({
   declarations: [
     EmployeeListComponent,
+    AddEmployeeComponent,
   ],
   imports: [
     CommonModule,
