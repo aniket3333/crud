@@ -9,11 +9,12 @@ import { IEmployeeService } from './Iempoyee.service';
   providedIn: 'root'
 })
 export class EmployeeService implements IEmployeeService {
-private apiUrl = 'https://localhost:7023/'
+private apiUrl = 'https://localhost:7023/api/Empoloyee'
   constructor(private _http:HttpClient) { }
 
 
   getAllEmployeeList(searchModel: EmployeeSearch): Observable<Employee[]> {
+    debugger
     if(!searchModel)
     {
       console.log('search model is empty');

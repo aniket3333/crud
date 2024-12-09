@@ -14,6 +14,7 @@ import { EmployeeSearch } from "../../models/employeesearch.model";
     ngOnInit(): void {
         debugger
         this.employeeSearch = new EmployeeSearch();
+        this.employeeSearch.empname = 'aniket';
         this.getEmployeeList();
     }
 
@@ -21,6 +22,7 @@ import { EmployeeSearch } from "../../models/employeesearch.model";
     {
         this._employeeService.getAllEmployeeList(this.employeeSearch).subscribe((res)=>{
 console.log(res);
+this.employeeList = res;
         },(error)=>{
             console.log(error);
         });
